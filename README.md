@@ -1,1 +1,1 @@
-# JavaScript Course Homework
+# JavaScript Course Homeworks
