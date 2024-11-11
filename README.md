@@ -1,1 +1,1 @@
-# prjctr_homeworks
+# JavaScript Course Homework
