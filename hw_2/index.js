@@ -48,7 +48,7 @@ if (userValue) {
 //In this case my answer will be next:
  
 const value = 12; 
-const valueIsNumber = typeof value === 'number' && !isNaN(value);
+const isNumber = typeof value === 'number' && !isNaN(value);
 
 //Using for loop
 
