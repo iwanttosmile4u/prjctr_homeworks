@@ -1,20 +1,19 @@
 'use strict'
 
+const isNumber = (userNumber) => typeof userNumber === 'number' && !isNaN(userNumber) && userNumber >= 0;
+
 // Task 1
 
 function recursiveOddSumTo(number) {
-  const isNumberCorrect = typeof number === 'number' && !isNaN(number) && number >= 0;
-
-  if (!isNumberCorrect) {
+  if (!isNumber(number)) {
     return 0;
   }
 
-  let validatedNumber = number;
   if (number % 2 === 0) {
-    validatedNumber = number - 1;
+    --number;
   }
 
-  return validatedNumber + recursiveOddSumTo(validatedNumber - 2); 
+  return number + recursiveOddSumTo(number - 2); 
 };
 
 console.log(recursiveOddSumTo(1));
@@ -26,16 +25,12 @@ console.log(recursiveOddSumTo('ghgjf'));
 function iterativeOddSumTo(number) {
   let result = 0;
 
-  const isNumberCorrect = typeof number === 'number' && !isNaN(number) && number >= 0;
-
-  if (!isNumberCorrect) {
+  if (!isNumber(number)) {
     return `${number} isn't correct`;
   }
 
-  for (let i = 0; i <= number; i++) {
-    if (i % 2 !== 0) {
-      result += i;
-    }
+  for (let i = 1; i <= number; i+=2) {
+    result += i;
   }
 
   return result;
