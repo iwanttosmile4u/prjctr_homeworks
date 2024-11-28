@@ -2,6 +2,8 @@
 
 // Task 1
 
+const sortNames = (names) => names.sort();
+
 const getInitials = (people) => {
   const initials = people.map((person) => {
     return person
@@ -10,7 +12,7 @@ const getInitials = (people) => {
     .join('.') + '.';
   })
 
-  return initials.sort();
+  return sortNames(initials);
 }
 
 const userNames = ["Петрик Ольга Іванівна", "Гнатюк Петро Антонович", "Рудко Андрій Опанасович"];
@@ -47,24 +49,24 @@ console.log(filterNamesByVowels(names));
 
 // Task 3
 
-const reserseNumber = (number) => {
+const reverseNumber = (number) => {
   const result = String(number).split('').reverse().join('');
-  const transformedNumber = +result;
-
-  return transformedNumber;
+  
+  return +result;
 }
 
-console.log(reserseNumber(4589));
+console.log(reverseNumber(4589));
 
 // Task 4
 
-const multiplyNumbers = (array) => {
-  const unitedArray = array.flat(Infinity);
+const uniteArray = (array) => array.flat(Infinity);
 
-  return unitedArray.reduce((accumulator, currentValue) => {
+const multiplyArrayNumbers = (array) => {
+
+  return uniteArray(array).reduce((accumulator, currentValue) => {
     return accumulator * currentValue;
   }, 1);
 }
 
 const resultsArray = [1, 2, [3, [4], [5]]];
-console.log(multiplyNumbers(resultsArray));
+console.log(multiplyArrayNumbers(resultsArray));
