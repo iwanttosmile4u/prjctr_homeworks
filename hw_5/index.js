@@ -2,11 +2,7 @@
 
 // Task 1
 
-const durationBetweenDates = ((startDate, endDate, size) => {
-  if (!startDate || !endDate || !size) {
-    throw new Error('Missing arguments!');
-  }
-
+const durationBetweenDates = ((startDate = '1 Jan 2023', endDate = '31 Dec 2023', size = 'days') => {
   const dateObj1 = new Date(startDate).getTime();
   const dateObj2 = new Date(endDate).getTime();
 
