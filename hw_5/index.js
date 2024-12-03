@@ -8,19 +8,23 @@ const durationBetweenDates = ((startDate = '1 Jan 2023', endDate = '31 Dec 2023'
 
   const dateSubtraction = Math.abs(dateObj1 - dateObj2);
 
+  const timeInSeconds = dateSubtraction / 1000; 
+  const timeInMinutes = timeInSeconds / 60; 
+  const timeInHours = timeInMinutes / 60;
+  const timeInDays = timeInHours / 24;
+
   switch(size) {
     case 'seconds': 
-      return `${dateSubtraction / 1000} ${size}`;
+      return `${timeInSeconds} ${size}`;
     case 'minutes': 
-      return `${dateSubtraction / 1000 / 60} ${size}`;
+      return `${timeInMinutes} ${size}`;
     case 'hours':
-      return `${dateSubtraction / 1000 / 60 / 60} ${size}`;
+      return `${timeInHours} ${size}`;
     case 'days':
-      return `${dateSubtraction / 1000 / 60 / 60 / 24} ${size}`;
+      return `${timeInDays} ${size}`;
     default:
-      return `Please, enter correct dste size value - seconds, minutes, hours or days!`;
+      return `Please, enter correct date size value - seconds, minutes, hours or days!`;
   }
-
 })
 
 const result = durationBetweenDates('31 Jan 2022', '03 Feb 2021', 'days'); 
@@ -37,8 +41,8 @@ const priceData = {
 const optimizer = (data) => {
 	const result = {};
 
-  for (const [key, value] of Object.entries(data)) {
-    result[key.toLowerCase()] = Number(value).toFixed(2);
+  for (const key in data) {
+    result[key.toLowerCase()] = Number(data[key]).toFixed(2);
   }
 
   return result;
